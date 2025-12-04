@@ -30,7 +30,7 @@ perl 2_GeMoMa_parser.pl -g genome.len -i final_annotation.gff -r 0.7 -o GeMoMa.g
 ```
 perl 3_Braker_parser.pl -g genome.len -i braker.gtf -o Braker.gff3.
 ```
-4. Merge these three gff3 files.
+4. Merge these three gff3 files. Priority order: PASA >= GeMoMa > Braker.
 ```
 perl 4_integrator.pl -g genome.len --est PASA.clean.gff3 --homology GeMoMa.gff3 --denovo Braker.gff3 -r 0.7 -o final.gff3
 ```
