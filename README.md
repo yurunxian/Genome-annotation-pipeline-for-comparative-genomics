@@ -21,6 +21,18 @@ You can now use my scripts to integrate gene predictions from PASA-assembler, Ge
 1. Use **1_PASA_parser.pl** to remove redundant transcripts in **PASA.transcript.fasta.transdecoder.genome.gff3**.
 ```
 perl 1_PASA_parser.pl -g genome.len -i PASA.transcript.fasta.transdecoder.genome.gff3 -r 0.7 --remove_single_exon -o PASA.clean.gff3
+
+    Usage:
+    -g <genome_info>      a text file containing the name and length for each contig/scaffold/chromosome
+                          example:    chr1    1000000
+                                      chr2    1000000
+                                      chr3    1000000
+    -i <PASA_file>        the standard PASA output, e.g., compreh_init_build.fasta.transdecoder.genome.gff3
+    -r <0-1>              the threshold of overlapping ratio used to merge two mRNA loci. Default: 0.7
+    -o <output>           output file
+    --remove_single_exon  remove single-exon mRNAs which are nested within multiple-exon ones
+    -h                    print this page
+
 ```
 2. Use **2_GeMoMa_parser.pl** to remove redundant transcripts in **final_annotation.gff**.
 ```
@@ -28,7 +40,7 @@ perl 2_GeMoMa_parser.pl -g genome.len -i final_annotation.gff -r 0.7 -o GeMoMa.g
 ```
 3. Use **3_Braker_parser.pl** to remove redundant transcripts in **braker.gtf**.
 ```
-perl 3_Braker_parser.pl -g genome.len -i braker.gtf -o Braker.gff3.
+perl 3_Braker_parser.pl -g genome.len -i braker.gtf -r 0.7 -o Braker.gff3.
 ```
 4. Merge these three gff3 files. Priority order: PASA >= GeMoMa > Braker.
 ```
