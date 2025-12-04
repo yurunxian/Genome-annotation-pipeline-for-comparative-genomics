@@ -3,17 +3,17 @@ This pipeline is used to integrate gene predictions from PASA-assembler, GeMoMa 
 
 ## Prepare your input files
 ### Transcriptome-based gene prediction
-1. Build a comprehensive transcript assembly according to https://github.com/PASApipeline/PASApipeline/wiki/PASA_comprehensive_db
-2. Discard any unreliable transcripts indicated in 'compreh_init_build/compreh_init_build.details', and generate a genome-based gene prediction gff3 file https://github.com/PASApipeline/PASApipeline/wiki/PASA_abinitio_training_sets
+1. Build a comprehensive transcript assembly according to https://github.com/PASApipeline/PASApipeline/wiki/PASA_comprehensive_db .
+2. Discard any unreliable transcripts indicated in 'compreh_init_build/compreh_init_build.details', and generate a genome-based gene prediction gff3 file https://github.com/PASApipeline/PASApipeline/wiki/PASA_abinitio_training_sets .
 3. The final gff3 file should be something looks like **PASA.transcript.fasta.transdecoder.genome.gff3**.
 
 ### Homology-based gene prediction
-1. Use GeMoMa for homology-based gene prediction https://jstacs.de/index.php/GeMoMa
-2. I highly recommand to provide the RNA-seq mapping file of your own species to GeMoMa, i.e., 'r=MAPPED ERE.m=RNA.sorted.bam'
+1. Use GeMoMa for homology-based gene prediction https://jstacs.de/index.php/GeMoMa .
+2. I **highly recommand** to provide the RNA-seq mapping file of your own species to GeMoMa, i.e., 'r=MAPPED ERE.m=RNA.sorted.bam' to improve the prediction.
 3. The final gff3 file should be **final_annotation.gff**.
 
 ### *Ab initio* gene prediction
-1. Feed both RNA-seq mapping file (tr) and protein sequences from other species to Braker3 to train the model for your species https://github.com/Gaius-Augustus/BRAKER
+1. Feed both RNA-seq mapping file (tr) and protein sequences from other species to Braker3 to train the model for your species https://github.com/Gaius-Augustus/BRAKER .
 2. The final gtf file should be **braker.gtf**.
 
 ### TE annotation
