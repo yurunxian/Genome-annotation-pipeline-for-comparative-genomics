@@ -16,6 +16,9 @@ This pipeline is used to integrate gene predictions from PASA-assembler, GeMoMa 
 1. Feed both RNA-seq mapping file (tr) and protein sequences from other species to Braker3 to train the model for your species https://github.com/Gaius-Augustus/BRAKER
 2. The final gtf file should be **braker.gtf**.
 
+### TE annotation
+The TE annotation is performed by the EDTA pipeline https://github.com/oushujun/EDTA.
+
 ## Integrate the gene predictions
 You can now use my scripts to integrate gene predictions from PASA-assembler, GeMoMa and Braker3.
 1. Use **1_PASA_parser.pl** to remove redundant transcripts in **PASA.transcript.fasta.transdecoder.genome.gff3**.
@@ -62,7 +65,7 @@ perl 5_finalization.pl
 
 Usage: perl 5_finalization.pl -g <genome_info> -a <gene_gff> --prefix <Species> -o <output>
 ```
-6. (Optional) Onlyl keep genes with a < 0.1 (or any value you like) overlapping ratio with annotated TEs. The TE annotation is performed by the EDTA pipeline https://github.com/oushujun/EDTA.
+6. (Optional) Only keep genes with a < 0.1 (or any value you like) overlapping ratio with annotated TEs.
 ```
 perl 6_TE_filter.pl -g genome.len -t xxx.fasta.mod.EDTA.TEanno.gff3 -r 0.1 -a final.gff3 -o final.TE.gff3
 ```
