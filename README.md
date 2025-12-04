@@ -50,8 +50,8 @@ perl 5_finalization.pl
 
 Usage: perl 5_finalization.pl -g <genome_info> -a <gene_gff> --prefix <Species> -o <output>
 ```
-6. (Optional) Filter out any genes with a > 90% overlapping ratio with annotated TEs. The TE annotation is performed by the EDTA pipeline https://github.com/oushujun/EDTA.
+6. (Optional) Onlyl keep genes with a < 0.1 (or any value you like) overlapping ratio with annotated TEs. The TE annotation is performed by the EDTA pipeline https://github.com/oushujun/EDTA.
 ```
-perl 6_TE_filter.pl -g genome.len -t xxx.fasta.mod.EDTA.TEanno.gff3 -a final.gff3 -o final.TE.gff3
+perl 6_TE_filter.pl -g genome.len -t xxx.fasta.mod.EDTA.TEanno.gff3 -r 0.1 -a final.gff3 -o final.TE.gff3
 ```
    
